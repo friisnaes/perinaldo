@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perinaldo Feriehus · Ligurien, Italien</title>
+  <meta name="description" content="Gammelt charmerende byhus i Perinaldo, Ligurien. 6–7 sovepladser, stor terrasse, have, udsigt til Middelhavet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:      #F8F2E4;
+      --sand:       #EDE0C8;
+      --parchment:  #F2EAD8;
+      --terracotta: #B85A28;
+      --terra-lt:   #D4724A;
+      --olive:      #3E4A30;
+      --olive-lt:   #5C6E46;
+      --charcoal:   #241C12;
+      --gold:       #A8843A;
+      --text:       #2C2218;
+      --muted:      #7A6A58;
+      --nav-h:      72px;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; font-size:16px; }
+    img  { display:block; max-width:100%; }
+    a    { color:inherit; text-decoration:none; }
+    body {
+      font-family:'Jost', sans-serif;
+      font-weight:300;
+      background:var(--cream);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    #nav {
+      position:fixed; top:0; left:0; width:100%; z-index:999;
+      height:var(--nav-h);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 48px;
+      transition:background .4s, box-shadow .4s;
+    }
+    #nav.scrolled {
+      background:rgba(248,242,228,.96);
+      backdrop-filter:blur(12px);
+      box-shadow:0 1px 0 rgba(168,132,58,.2);
+    }
+    .nav-brand {
+      font-family:'Cormorant Garamond', serif;
+      font-size:1.25rem; font-weight:400; letter-spacing:.08em;
+      color:#fff; transition:color .4s;
+    }
+    #nav.scrolled .nav-brand { color:var(--terracotta); }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a {
+      font-size:.68rem; letter-spacing:.15em; text-transform:uppercase;
+      font-weight:400; color:rgba(255,255,255,.8); transition:color .3s;
+    }
+    #nav.scrolled .nav-links a { color:var(--muted); }
+    .nav-links a:hover { color:var(--terracotta) !important; }
+    .nav-book {
+      padding:9px 20px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.3);
+      font-size:.65rem; letter-spacing:.15em; text-transform:uppercase;
+      color:#fff; cursor:pointer;
+      transition:all .3s; border-radius:1px;
+    }
+    #nav.scrolled .nav-book {
+      background:var(--terracotta); border-color:var(--terracotta); color:#fff;
+    }
+    .nav-book:hover { background:var(--terracotta) !important; border-color:var(--terracotta) !important; color:#fff !important; }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    #hero {
+      position:relative; height:100vh; min-height:620px;
+      display:flex; align-items:flex-end;
+      padding:0 64px 80px; overflow:hidden;
+    }
+    .hero-bg {
+      position:absolute; inset:0; overflow:hidden;
+    }
+    .hero-bg img {
+      width:100%; height:100%; object-fit:cover; object-position:center 60%;
+    }
+    .hero-bg::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to top,
+        rgba(15,8,2,.88) 0%,
+        rgba(20,12,4,.4) 40%,
+        rgba(20,12,4,.1) 100%);
+    }
+    .hero-content { position:relative; z-index:1; max-width:800px; }
+    .hero-eyebrow {
+      font-size:.62rem; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:20px; display:block;
+    }
+    h1.hero-title {
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(3.2rem,7vw,5.8rem);
+      font-weight:300; line-height:.95; color:#fff; margin-bottom:8px;
+    }
+    h1.hero-title em { font-style:italic; color:rgba(255,255,255,.65); }
+    .hero-subtitle {
+      font-size:.8rem; letter-spacing:.14em; text-transform:uppercase;
+      color:rgba(255,255,255,.5); margin-bottom:38px;
+    }
+    .hero-meta { display:flex; gap:40px; flex-wrap:wrap; }
+    .hm-item { display:flex; flex-direction:column; gap:5px; }
+    .hm-label { font-size:.57rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.35); }
+    .hm-value { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#fff; }
+    .scroll-hint {
+      position:absolute; bottom:32px; right:52px; z-index:1;
+      display:flex; flex-direction:column; align-items:center; gap:10px; opacity:.45;
+    }
+    .scroll-hint span {
+      font-size:.58rem; letter-spacing:.2em; text-transform:uppercase;
+      color:#fff; writing-mode:vertical-lr;
+    }
+    .scroll-line {
+      width:1px; height:52px;
+      background:linear-gradient(to bottom,#fff,transparent);
+      animation:sl 2.2s ease-in-out infinite;
+    }
+    @keyframes sl { 0%,100%{transform:scaleY(1);opacity:.45} 50%{transform:scaleY(.35);opacity:.9} }
+
+    /* ── SHARED ───────────────────────────────────────── */
+    section { padding:96px 0; }
+    .container { max-width:1140px; margin:0 auto; padding:0 48px; }
+    .container-wide { max-width:1400px; margin:0 auto; padding:0 48px; }
+    .section-label {
+      font-size:.6rem; letter-spacing:.25em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:14px; display:block;
+    }
+    .section-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,4vw,3.2rem);
+      font-weight:400; line-height:1.1; color:var(--charcoal); margin-bottom:22px;
+    }
+    .section-title em { font-style:italic; color:var(--terracotta); }
+    .section-intro {
+      font-size:.97rem; line-height:1.85; color:var(--muted);
+      max-width:660px; margin-bottom:52px;
+    }
+    .gold-rule { width:44px; height:1px; background:var(--gold); margin-bottom:22px; }
+
+    /* ── PHOTO HELPERS ────────────────────────────────── */
+    .photo-frame {
+      position:relative; overflow:hidden; border-radius:2px;
+      background:#2a2018;
+    }
+    .photo-frame img {
+      width:100%; height:100%; object-fit:cover;
+      transition:transform .65s ease;
+    }
+    .photo-frame:hover img { transform:scale(1.04); }
+
+    /* ── HUSET ────────────────────────────────────────── */
+    #huset { background:var(--cream); }
+    .apt-tabs {
+      display:flex; gap:0; margin-bottom:40px;
+      border-bottom:1px solid var(--sand);
+    }
+    .apt-tab {
+      padding:11px 26px; cursor:pointer;
+      font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+      font-weight:400; color:var(--muted);
+      border-bottom:2px solid transparent; margin-bottom:-1px;
+      transition:all .3s;
+    }
+    .apt-tab.active { color:var(--terracotta); border-bottom-color:var(--terracotta); }
+    .apt-panel { display:none; }
+    .apt-panel.active { display:block; }
+    .apt-layout {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:56px; align-items:start;
+    }
+    .apt-text h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.55rem; font-weight:400; color:var(--charcoal); margin-bottom:18px;
+    }
+    .apt-text p {
+      font-size:.93rem; line-height:1.9; color:var(--muted); margin-bottom:14px;
+    }
+    .features {
+      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:24px;
+    }
+    .feat {
+      display:flex; align-items:flex-start; gap:10px;
+    }
+    .feat-dot {
+      width:4px; height:4px; border-radius:50%;
+      background:var(--terracotta); flex-shrink:0; margin-top:9px;
+    }
+    .feat span { font-size:.8rem; letter-spacing:.03em; color:var(--text); line-height:1.5; }
+    /* Photo mosaic for apartments */
+    .apt-mosaic {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:260px 200px;
+      gap:10px;
+    }
+    .apt-mosaic .photo-frame:first-child { grid-column:span 2; }
+
+    /* ── TERRASSE ─────────────────────────────────────── */
+    #terrasse { background:var(--parchment); }
+    .terrasse-hero {
+      width:100%; height:500px; margin-bottom:16px;
+    }
+    .terrasse-strip {
+      display:grid; grid-template-columns:1fr 1fr 1fr;
+      gap:12px; height:300px; margin-bottom:52px;
+    }
+    .terrasse-copy {
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:36px;
+    }
+    .t-feat {
+      padding:24px 0; border-top:1px solid rgba(168,132,58,.22);
+    }
+    .t-feat h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.1rem; font-weight:600; color:var(--charcoal); margin-bottom:10px;
+    }
+    .t-feat p { font-size:.83rem; line-height:1.75; color:var(--muted); }
+
+    /* ── PERINALDO ────────────────────────────────────── */
+    #perinaldo { background:var(--charcoal); color:#fff; }
+    #perinaldo .section-title { color:#fff; }
+    #perinaldo .gold-rule { background:var(--gold); }
+    .perinaldo-layout {
+      display:grid; grid-template-columns:1.1fr 1fr; gap:72px; align-items:start;
+    }
+    .peri-photo-wrap { position:relative; }
+    .peri-main-photo { height:480px; }
+    .peri-facts {
+      display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;
+    }
+    .fact {
+      padding:18px 20px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .fact-num {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.9rem; font-weight:300; color:var(--gold); line-height:1; display:block;
+    }
+    .fact-lbl {
+      font-size:.67rem; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(255,255,255,.38); margin-top:5px; display:block;
+    }
+    .perinaldo-text p {
+      font-size:.93rem; line-height:1.9; color:rgba(255,255,255,.62); margin-bottom:18px;
+    }
+    .poi-list { list-style:none; margin-top:24px; }
+    .poi-list li {
+      padding:13px 0; border-bottom:1px solid rgba(255,255,255,.07);
+      display:flex; justify-content:space-between; align-items:baseline;
+    }
+    .poi-list li span:first-child { font-size:.85rem; color:rgba(255,255,255,.75); }
+    .poi-list li span:last-child {
+      font-size:.68rem; color:rgba(255,255,255,.32); letter-spacing:.07em;
+    }
+
+    /* ── UDFLUGTER ────────────────────────────────────── */
+    #udflugter { background:var(--cream); }
+    .dest-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:52px;
+    }
+    .dest-card { position:relative; overflow:hidden; border-radius:2px; cursor:default; }
+    .dest-photo { height:290px; background:#2a2018; }
+    .dest-photo img { width:100%; height:100%; object-fit:cover; transition:transform .55s ease; }
+    .dest-card:hover .dest-photo img { transform:scale(1.06); }
+    .dest-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(18,10,3,.92) 0%,rgba(18,10,3,.08) 60%);
+      display:flex; flex-direction:column; justify-content:flex-end;
+      padding:22px 20px;
+    }
+    .dest-km {
+      font-size:.6rem; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:5px;
+    }
+    .dest-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.55rem; font-weight:400; color:#fff; margin-bottom:7px; line-height:1.1;
+    }
+    .dest-desc {
+      font-size:.78rem; line-height:1.65; color:rgba(255,255,255,.0);
+      transition:color .35s ease; max-height:80px; overflow:hidden;
+    }
+    .dest-card:hover .dest-desc { color:rgba(255,255,255,.65); }
+
+    /* Destination placeholder gradients */
+    .dpg-dolce { background:linear-gradient(135deg,#2a1c10,#5a3820); }
+    .dpg-apricale { background:linear-gradient(135deg,#1e2a14,#3a4a20); }
+    .dpg-bord { background:linear-gradient(135deg,#102030,#204060); }
+    .dpg-venti { background:linear-gradient(135deg,#301810,#602010); }
+    .dpg-sanremo { background:linear-gradient(135deg,#1a1830,#382060); }
+    .dpg-pigna { background:linear-gradient(135deg,#282018,#504030); }
+    .dpg-menton { background:linear-gradient(135deg,#102030,#1a3a50); }
+    .dpg-vandring { background:linear-gradient(135deg,#182010,#304020); }
+    .dpg-nice { background:linear-gradient(135deg,#0c1828,#182040); }
+
+    /* ── GASTRONOMI ───────────────────────────────────── */
+    #gastronomi { background:var(--parchment); }
+    .gastro-header {
+      display:grid; grid-template-columns:1fr auto;
+      gap:40px; align-items:end; margin-bottom:44px;
+    }
+    .gastro-filters { display:flex; gap:8px; flex-wrap:wrap; }
+    .fbtn {
+      padding:7px 15px;
+      border:1px solid rgba(168,132,58,.35); border-radius:1px;
+      background:transparent; cursor:pointer;
+      font-family:'Jost',sans-serif;
+      font-size:.67rem; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--muted); transition:all .22s;
+    }
+    .fbtn:hover, .fbtn.active {
+      background:var(--terracotta); border-color:var(--terracotta); color:#fff;
+    }
+    .rest-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+    }
+    .rc {
+      background:var(--cream); border:1px solid rgba(168,132,58,.14);
+      padding:22px; position:relative; transition:box-shadow .3s, transform .3s;
+    }
+    .rc:hover { box-shadow:0 6px 28px rgba(40,20,8,.09); transform:translateY(-2px); }
+    .rc.top::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--terracotta);
+    }
+    .rc-badge {
+      font-size:.54rem; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--terracotta); margin-bottom:7px; display:block;
+    }
+    .rc-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.15rem; font-weight:500; color:var(--charcoal);
+      margin-bottom:3px; line-height:1.2;
+    }
+    .rc-loc {
+      font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:12px;
+    }
+    .rc-desc { font-size:.8rem; line-height:1.72; color:var(--muted); margin-bottom:14px; }
+    .rc-foot {
+      display:flex; justify-content:space-between; align-items:center;
+      padding-top:12px; border-top:1px solid var(--sand); flex-wrap:wrap; gap:6px;
+    }
+    .rc-rating {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.05rem; color:var(--text);
+    }
+    .rc-rating small { font-family:'Jost',sans-serif; font-size:.62rem; color:var(--muted); }
+    .rc-price { font-size:.72rem; letter-spacing:.06em; color:var(--muted); }
+    .rc-closed { font-size:.63rem; color:var(--terracotta); }
+    .rc-phone { font-size:.7rem; color:var(--muted); margin-top:5px; }
+
+    /* ── PRAKTISK ─────────────────────────────────────── */
+    #praktisk { background:var(--olive); color:#fff; }
+    #praktisk .section-title { color:#fff; }
+    #praktisk .gold-rule { background:var(--gold); }
+    .praktisk-grid {
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; margin-bottom:52px;
+    }
+    .pk {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      padding:28px;
+    }
+    .pk h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.25rem; font-weight:400; color:var(--gold); margin-bottom:16px;
+    }
+    .pk ul { list-style:none; }
+    .pk ul li {
+      font-size:.82rem; color:rgba(255,255,255,.62); line-height:1.7;
+      padding:5px 0; border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .pk ul li strong { color:rgba(255,255,255,.88); font-weight:400; }
+    .price-duo {
+      display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:44px;
+    }
+    .price-block {
+      text-align:center; padding:36px 24px;
+      background:rgba(255,255,255,.03); border:1px solid rgba(168,132,58,.28);
+    }
+    .price-big {
+      font-family:'Cormorant Garamond',serif;
+      font-size:3.2rem; font-weight:300; color:var(--gold);
+    }
+    .price-per {
+      font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(255,255,255,.36); margin-top:4px;
+    }
+    .price-note {
+      font-size:.76rem; color:rgba(255,255,255,.38); line-height:1.7; margin-top:14px;
+    }
+    .booking-cta {
+      display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:40px;
+    }
+    .btn-p {
+      padding:13px 32px; background:var(--terracotta); color:#fff;
+      font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+      font-family:'Jost',sans-serif; font-weight:400; border:none; cursor:pointer;
+      transition:background .3s; display:inline-block;
+    }
+    .btn-p:hover { background:var(--terra-lt); }
+    .btn-o {
+      padding:13px 32px; background:transparent; color:rgba(255,255,255,.68);
+      font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+      font-family:'Jost',sans-serif; font-weight:400;
+      border:1px solid rgba(255,255,255,.22); cursor:pointer;
+      transition:all .3s; display:inline-block;
+    }
+    .btn-o:hover { border-color:rgba(255,255,255,.55); color:#fff; }
+    .quote-end {
+      margin-top:60px; text-align:center; padding-top:32px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .quote-end p {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.75rem; font-style:italic; color:rgba(255,255,255,.28);
+    }
+
+    /* ── RUTEVEJLEDNING ───────────────────────────────── */
+    #rute { background:var(--cream); }
+    .rute-layout {
+      display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start;
+    }
+    .rute-step {
+      display:flex; gap:18px; padding:18px 0;
+      border-bottom:1px solid var(--sand);
+    }
+    .rn {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.7rem; font-weight:300; color:var(--gold);
+      line-height:1; flex-shrink:0; width:28px;
+    }
+    .rt h4 {
+      font-size:.76rem; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--charcoal); margin-bottom:5px;
+    }
+    .rt p { font-size:.83rem; line-height:1.75; color:var(--muted); }
+    .map-block {
+      background:var(--sand); height:420px; border-radius:2px; overflow:hidden;
+    }
+    .map-block iframe { width:100%; height:100%; border:0; }
+    .map-meta {
+      margin-top:14px; font-size:.74rem; color:var(--muted); line-height:1.7;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      background:var(--charcoal); padding:44px 48px;
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:20px;
+    }
+    .f-brand {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.3rem; color:rgba(255,255,255,.45);
+    }
+    .f-addr { font-size:.72rem; color:rgba(255,255,255,.28); letter-spacing:.07em; line-height:1.75; }
+    .f-copy { font-size:.62rem; color:rgba(255,255,255,.18); letter-spacing:.1em; }
+
+    /* ── ANIMATIONS ───────────────────────────────────── */
+    .fu {
+      opacity:0; transform:translateY(22px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .fu.vis { opacity:1; transform:none; }
+    .fu:nth-child(2){transition-delay:.08s}
+    .fu:nth-child(3){transition-delay:.16s}
+    .fu:nth-child(4){transition-delay:.24s}
+    .fu:nth-child(5){transition-delay:.32s}
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media(max-width:900px){
+      #nav { padding:0 20px; }
+      .nav-links { display:none; }
+      #hero { padding:0 24px 56px; }
+      .container, .container-wide { padding:0 24px; }
+      section { padding:60px 0; }
+      .apt-layout, .perinaldo-layout, .rute-layout { grid-template-columns:1fr; gap:36px; }
+      .terrasse-strip, .terrasse-copy { grid-template-columns:1fr; height:auto; }
+      .terrasse-hero { height:320px; }
+      .dest-grid, .rest-grid, .praktisk-grid { grid-template-columns:1fr; }
+      .price-duo { grid-template-columns:1fr; }
+      .gastro-header { grid-template-columns:1fr; }
+      footer { flex-direction:column; text-align:center; }
+      .apt-mosaic { grid-template-rows:220px 160px; }
+      .peri-main-photo { height:320px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <span class="nav-brand">Perinaldo</span>
+  <ul class="nav-links">
+    <li><a href="#huset">Huset</a></li>
+    <li><a href="#terrasse">Terrasse</a></li>
+    <li><a href="#perinaldo">Perinaldo</a></li>
+    <li><a href="#udflugter">Udflugter</a></li>
+    <li><a href="#gastronomi">Gastronomi</a></li>
+    <li><a href="#praktisk">Booking</a></li>
+  </ul>
+  <a href="#praktisk" class="nav-book">Book nu</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="Morgenmad på terrassen med udsigt til Middelhavet" loading="eager">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Via Matteotti 24 · Perinaldo · Ligurien · Italien</span>
+    <h1 class="hero-title">Perinaldo<br><em>Feriehus</em></h1>
+    <p class="hero-subtitle">600 m over havet &nbsp;·&nbsp; 20 min til kysten &nbsp;·&nbsp; ægte italiensk middelhavsstemning</p>
+    <div class="hero-meta">
+      <div class="hm-item">
+        <span class="hm-label">Sovepladser</span>
+        <span class="hm-value">6–7</span>
+      </div>
+      <div class="hm-item">
+        <span class="hm-label">Lejligheder</span>
+        <span class="hm-value">2</span>
+      </div>
+      <div class="hm-item">
+        <span class="hm-label">Bygget</span>
+        <span class="hm-value">~1790</span>
+      </div>
+      <div class="hm-item">
+        <span class="hm-label">Pris pr. uge</span>
+        <span class="hm-value">6.000 kr</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- HUSET -->
+<section id="huset">
+  <div class="container">
+    <span class="section-label fu">Huset</span>
+    <div class="gold-rule fu"></div>
+    <h2 class="section-title fu">Et charmerende<br><em>gammelt byhus</em></h2>
+    <p class="section-intro fu">
+      Ligurisk byhus fra ca. 1790'erne, beliggende i udkanten af landsbyen Perinaldo.
+      To separate lejligheder med 6–7 sovepladser i alt, stor sydvendt terrasse og hyggelig have — med udsigt ned til Middelhavet i horisonten.
+    </p>
+
+    <div class="apt-tabs">
+      <div class="apt-tab active" onclick="switchTab('studio')">Studiet (2–3 spl.)</div>
+      <div class="apt-tab" onclick="switchTab('main')">Lejligheden (4 spl.)</div>
+    </div>
+
+    <!-- STUDIO TAB — vi har de flotte fotos her -->
+    <div id="tab-studio" class="apt-panel active">
+      <div class="apt-layout fu">
+        <div class="apt-text">
+          <h3>Studiet — lys og rustik charme</h3>
+          <p>
+            Ét stort, meget lyst rum med ca. 4 meter til loftet og tre store glasdøre med udsigt og direkte adgang til terrassen og haven. Hvide kalkede stenhusvægge med smukke hvælvede buer.
+          </p>
+          <p>
+            Egne tekøkken og separat badeværelse med Carraramarmor. Hems ovenpå badeværelset. Havudsigt fra sengen!
+          </p>
+          <div class="features">
+            <div class="feat"><div class="feat-dot"></div><span>Dobbeltseng med havudsigt</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Madras på hemsen</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Lille tekøkken</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Badeværelse med marmor</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>4 m til loftet</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Direkte adgang til terrassen</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Hvælvede buer og sten</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Farverig berberisk tæppe</span></div>
+          </div>
+        </div>
+        <div class="apt-mosaic">
+          <div class="photo-frame" style="height:260px;">
+            <img src="images/studio-dag.jpg" alt="Studiet med lys fra tre store vinduer og dobbeltseng">
+          </div>
+          <div class="photo-frame" style="height:200px;">
+            <img src="images/studio-hems.jpg" alt="Studiet med hvælvet bue og trapper til hemsen">
+          </div>
+          <div class="photo-frame" style="height:200px;">
+            <img src="images/badevarelse.jpg" alt="Badeværelse med Carraramarmor">
+          </div>
+        </div>
+      </div>
+
+      <!-- Extra studio photo strip -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;" class="fu">
+        <div class="photo-frame" style="height:320px;">
+          <img src="images/studio-nat.jpg" alt="Studiet om aftenen — seng og sofa med bue">
+        </div>
+        <div class="photo-frame" style="height:320px;">
+          <img src="images/studio-stue.jpg" alt="Studiets hyggekrog med sofa langs stenbagg">
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN APARTMENT TAB -->
+    <div id="tab-main" class="apt-panel">
+      <div class="apt-layout fu">
+        <div class="apt-text">
+          <h3>Hovedlejligheden — to etager</h3>
+          <p>
+            Lejlighed i to etager: køkken og spisestue i stueplan, og soveværelse, badeværelse og stue på øverste etage. Stor sydvendt terrasse med læ og udsigt samt balkon fra stue og soveværelse.
+          </p>
+          <p>
+            Charmerende med rundbuede lofter og original ligurisk stil — rå sten på væggene og flotte gamle kakler på gulvene. Huset er fra ca. 1790'erne og er i fin moderniseret stand. Store glasdøre mod syd fra alle rum.
+          </p>
+          <div class="features">
+            <div class="feat"><div class="feat-dot"></div><span>Dobbeltseng i soveværelse</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Dobbelt sovesofa i stuen</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Gulvvarme i køkken/spisestue</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Pejs i stuen</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Effektive radiatorer</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Sydvendt terrasse</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Balkon fra stue og soveværelse</span></div>
+            <div class="feat"><div class="feat-dot"></div><span>Hyggekrog i spisestuen</span></div>
+          </div>
+        </div>
+        <div class="apt-mosaic">
+          <div class="photo-frame" style="height:260px;">
+            <img src="images/balkonen.jpg" alt="Balkonen med udsigt mod bjergene og havet">
+          </div>
+          <div class="photo-frame" style="height:200px;">
+            <img src="images/terrasse-udsigt.jpg" alt="Terrassen med udsigt">
+          </div>
+          <div class="photo-frame" style="height:200px;">
+            <img src="images/terrasse-liggestole.jpg" alt="Liggestolene på terrassen">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TERRASSE & HAVE -->
+<section id="terrasse">
+  <div class="container">
+    <span class="section-label fu">Terrasse &amp; Have</span>
+    <div class="gold-rule fu"></div>
+    <h2 class="section-title fu">Sol hele dagen,<br><em>udsigt til havet</em></h2>
+    <p class="section-intro fu">
+      Stor fælles terrasse med sol fra morgen til aften — og udsigt over bjergene ned til Middelhavet. Haven i to niveauer med palmer, figner, rosmarin, granatæble, agave og jordbærtræ. Åbent hele året.
+    </p>
+  </div>
+
+  <div class="container-wide">
+    <!-- Hero terrasse photo -->
+    <div class="photo-frame terrasse-hero fu">
+      <img src="images/hero.jpg" alt="Morgenmad på terrassen med udsigt til bjergene og havet" style="object-position:center 55%;">
+    </div>
+
+    <!-- Three-photo strip -->
+    <div class="terrasse-strip fu">
+      <div class="photo-frame">
+        <img src="images/terrasse-udsigt.jpg" alt="Terrassen med lygte og havudsigt">
+      </div>
+      <div class="photo-frame">
+        <img src="images/terrasse-liggestole.jpg" alt="To liggestole på terrassen">
+      </div>
+      <div class="photo-frame">
+        <img src="images/terrasse-taage.jpg" alt="Tågemorgen fra terrassen — huset kan bruges hele året">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="terrasse-copy">
+      <div class="t-feat fu">
+        <h4>Udsigt hele vejen</h4>
+        <p>Fra terrassen ser du bjergene ned til Middelhavet. En unik udsigt der ændrer karakter hele dagen — fra morgentåge til gyldent aftenlys. Huset kan med fordel bruges alle årstider.</p>
+      </div>
+      <div class="t-feat fu">
+        <h4>Udendørs badekar</h4>
+        <p>Nyd et afkølende bad med udsigt over bjergene. Terrassen er sikkert afskærmet med smedejernsgitter mod den stejle trappe — trygt for de mindste og for hunde.</p>
+      </div>
+      <div class="t-feat fu">
+        <h4>Frodigt planteliv</h4>
+        <p>Haven i to niveauer med palmer, kaktus, figner, rosmarin, agave, granatæble og jordbærtræ. Mange hyggelige lækroge — alle med uforstyrret udsigt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERINALDO -->
+<section id="perinaldo">
+  <div class="container">
+    <span class="section-label fu">Landsbyen</span>
+    <div class="gold-rule fu"></div>
+    <h2 class="section-title fu">Perinaldo —<br><em>Italiens himmel over havet</em></h2>
+
+    <div class="perinaldo-layout">
+      <div class="fu">
+        <div class="photo-frame peri-main-photo">
+          <img src="images/perinaldo-solnedgang.jpg" alt="Perinaldo landsby ved solnedgang">
+        </div>
+        <div class="peri-facts">
+          <div class="fact">
+            <span class="fact-num">600 m</span>
+            <span class="fact-lbl">Over havet</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">13 km</span>
+            <span class="fact-lbl">Fra kysten</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">20 min</span>
+            <span class="fact-lbl">Til stranden</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">~1790</span>
+            <span class="fact-lbl">Huset bygget</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="perinaldo-text fu">
+        <p>Perinaldo er en hyggelig gammel by med trafikfrit centrum, mange snørklede gader og trapper. Byen er særligt kendt for de <strong style="color:rgba(255,255,255,.9);">udendørs gallerigader</strong> med malerier af byens kendte astronomer.</p>
+        <p>Fra alle steder er der udsigt til det blå hav, de grønne olivenklædte bjerge eller de hvide sneklædte bjerge inde i landet.</p>
+        <ul class="poi-list">
+          <li><span>Au Gaggian — bar &amp; restaurant</span><span>Byens hjerte</span></li>
+          <li><span>I Pianeti di Giove</span><span>Aftenmiddag</span></li>
+          <li><span>Vinbar Il Divino</span><span>Pinsa &amp; lokal vin</span></li>
+          <li><span>Hotel La Riana</span><span>Terrassemiddag</span></li>
+          <li><span>Observatoriet &amp; planetariet</span><span>Via San Romolo</span></li>
+          <li><span>Cassini-monumentet</span><span>Historisk</span></li>
+          <li><span>Onsdag-marked · Piazza Santa Croce</span><span>Frugt, grønt, ost</span></li>
+          <li><span>Supermarked Conad</span><span>Vallecrosia 13 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UDFLUGTER -->
+<section id="udflugter">
+  <div class="container">
+    <span class="section-label fu">Udflugter</span>
+    <div class="gold-rule fu"></div>
+    <h2 class="section-title fu">Alt inden for<br><em>rækkevidde</em></h2>
+    <p class="section-intro fu">Fra bjerglandsbyer med middelalderborge til mondæne kystbyer og franske perler — alt er tæt på.</p>
+  </div>
+
+  <div class="container-wide">
+    <div class="dest-grid">
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-dolce"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">15 min · 9 km</span>
+          <h3 class="dest-name">Dolceacqua</h3>
+          <p class="dest-desc">Dorias middelalderborg og broen Monet malede. Must-see. Prøv Rossese di Dolceacqua-vinen — den lokale DOCG-rødvin.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-apricale"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">10 min · 8 km</span>
+          <h3 class="dest-name">Apricale</h3>
+          <p class="dest-desc">Husene kravler op ad bjergsiden. En af Italiens smukkeste landsbyer. Spis under kastanietræerne på Da Delio.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-bord"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">22 min · 14 km</span>
+          <h3 class="dest-name">Bordighera</h3>
+          <p class="dest-desc">Charmerende strandby med gammel bydel på toppen og promenade langs vandet. Stenstrande og én naturlig sandstrand.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-venti"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">22 min · 14 km</span>
+          <h3 class="dest-name">Ventimiglia</h3>
+          <p class="dest-desc">Europas største udendørs marked om fredagen. Frugt, grønt, fisk, kager og lokale delikatesser.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-sanremo"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">25 min · 17 km</span>
+          <h3 class="dest-name">Sanremo</h3>
+          <p class="dest-desc">Casino, Alfred Nobels villa, gammel bydel "La Pigna". Sanremo Golf Club kun 20 min fra Perinaldo.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-pigna"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">28 min · 18 km</span>
+          <h3 class="dest-name">Pigna &amp; bjergene</h3>
+          <p class="dest-desc">Gammel kurby med termiske bade. Rochetta Nervina med iskolde naturlige bjergsøer og vandfald — klatring og canyoning.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-menton"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">~35 min</span>
+          <h3 class="dest-name">Menton &amp; Monaco</h3>
+          <p class="dest-desc">Menton med berømt kirkegård og sandstrand. Monaco med casino, oceanografisk museum og gigantiske yachts.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-vandring"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">Fra hoveddøren</span>
+          <h3 class="dest-name">Vandreture</h3>
+          <p class="dest-desc">Til Apricale (1½ t), Dolceacqua (2 t) og Chiesa della Visitazione (½ t). 24 km kyststibane ombygget til cykelsti.</p>
+        </div>
+      </div>
+      <div class="dest-card fu">
+        <div class="dest-photo dpg-nice"><img src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="dest-overlay">
+          <span class="dest-km">~1 time</span>
+          <h3 class="dest-name">Nice &amp; Côte d'Azur</h3>
+          <p class="dest-desc">Eze, St. Paul de Vence (Fondation Maeght), Cannes, Grasse og Gorges du Verdon på lidt længere ture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMI -->
+<section id="gastronomi">
+  <div class="container">
+    <span class="section-label fu">Gastronomi</span>
+    <div class="gold-rule fu"></div>
+
+    <div class="gastro-header fu">
+      <div>
+        <h2 class="section-title">Guida Gastronomica<br><em>Perinaldo &amp; dintorni</em></h2>
+        <p style="font-size:.83rem; line-height:1.85; color:var(--muted); max-width:500px;">
+          En privat samling af de bedste spisesteder inden for 25 min fra huset.
+          <strong>Rød markering</strong> = særligt anbefalede klassikere. Drik lokalt: <em>Rossese di Dolceacqua</em> (rød) og <em>Pigato</em> (hvid).
+        </p>
+      </div>
+      <div>
+        <div class="gastro-filters">
+          <button class="fbtn active" onclick="filterR('all',this)">Alle</button>
+          <button class="fbtn" onclick="filterR('perinaldo',this)">Perinaldo</button>
+          <button class="fbtn" onclick="filterR('apricale',this)">Apricale</button>
+          <button class="fbtn" onclick="filterR('bordighera',this)">Bordighera</button>
+          <button class="fbtn" onclick="filterR('dolceacqua',this)">Dolceacqua</button>
+          <button class="fbtn" onclick="filterR('pigna',this)">Pigna</button>
+          <button class="fbtn" onclick="filterR('top',this)">⭑ Top 10</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rest-grid" id="rg">
+
+      <div class="rc top fu" data-a="perinaldo" data-t="1">
+        <span class="rc-badge">★ Klassiker · Perinaldo</span>
+        <h3 class="rc-name">I Pianeti di Giove</h3>
+        <div class="rc-loc">Via Matteotti 50 · Gåafstand</div>
+        <p class="rc-desc">Angelo laver alt selv med friske, lokale råvarer. Skiftende sæsonmenu, 3-retter ~26 €. Taler flydende tysk.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,5/5 <small>(140)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Ring først — uregelmæssige tider · Husk kontanter</div>
+        <div class="rc-phone">+39 342 372 2079</div>
+      </div>
+
+      <div class="rc top fu" data-a="perinaldo" data-t="1">
+        <span class="rc-badge">★ Klassiker · Perinaldo</span>
+        <h3 class="rc-name">Au Gaggian</h3>
+        <div class="rc-loc">Via Antonio Gramsci 13 · Gåafstand</div>
+        <p class="rc-desc">Byens sociale hjerte. Bar fra kl. 7:30. Restaurant ovenpå med terrasse og udsigt. Hjemmelavet pasta, blæksprutte, gnocchi al ragù.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,4/5 <small>(636)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Mandag</div>
+        <div class="rc-phone">+39 0184 672006</div>
+      </div>
+
+      <div class="rc top fu" data-a="perinaldo" data-t="1">
+        <span class="rc-badge">Vinbar &amp; Pinsa · Perinaldo</span>
+        <h3 class="rc-name">Il Divino</h3>
+        <div class="rc-loc">Via G.D. Cassini · Gåafstand</div>
+        <p class="rc-desc">Vinbar med romersk pinsa i en frescomalet, smal gade. 4,8/5 — ekstremt positive lokale anmeldelser.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,8/5 <small>(43)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Kun aften 19–24</div>
+        <div class="rc-phone">+39 338 335 6511</div>
+      </div>
+
+      <div class="rc fu" data-a="perinaldo">
+        <span class="rc-badge">Søndagsfrokost · Negi Fumei</span>
+        <h3 class="rc-name">Osteria du Barba Pe</h3>
+        <div class="rc-loc">Case Cassini, Negi · 10 min</div>
+        <p class="rc-desc">14 retter for 65 €. Enzo og familiens store søndagsfrokost. Reservation uger i forvejen — en af områdets mest unikke oplevelser.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,7/5 <small>(122)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">KUN søndag 12:30–14</div>
+        <div class="rc-phone">+44 7767 888898</div>
+      </div>
+
+      <div class="rc fu" data-a="perinaldo">
+        <span class="rc-badge">Agriturismo · Panorama</span>
+        <h3 class="rc-name">Il Rifugio di Artemide</h3>
+        <div class="rc-loc">Regione Massabò · 10 min</div>
+        <p class="rc-desc">Agriturismo med naturpool og panoramaudsigt. Ligurisk køkken med stærkt lokale råvarer. Cinzia er værtinden. Også overnatning.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,5/5 <small>(172)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Ring og tjek — reservation nødvendig</div>
+        <div class="rc-phone">+39 335 695 1203</div>
+      </div>
+
+      <div class="rc top fu" data-a="apricale" data-t="1">
+        <span class="rc-badge">★ Klassiker · Apricale</span>
+        <h3 class="rc-name">Apricale da Delio</h3>
+        <div class="rc-loc">Piazza V. Veneto 9 · 10 min</div>
+        <p class="rc-desc">To brødre fra landsbyen. Kid med bønner, røget tun, kanin. Smuk terrasseudsigt. Klassisk ligurisk bjergaften.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,5/5 <small>(607)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Man + Tirs</div>
+        <div class="rc-phone">+39 0184 208008</div>
+      </div>
+
+      <div class="rc fu" data-a="apricale">
+        <span class="rc-badge">Sæsonkøkken · Apricale</span>
+        <h3 class="rc-name">Apricus Osteria &amp; Bar</h3>
+        <div class="rc-loc">Via Roma 42 · 10 min</div>
+        <p class="rc-desc">Ugentligt skiftende menu. Brændenælde-ravioli i hjortragú. Solnedgangsudsigt ned i dalen.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,5/5 <small>(445)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Mandag</div>
+        <div class="rc-phone">+39 0184 208643</div>
+      </div>
+
+      <div class="rc fu" data-a="apricale">
+        <span class="rc-badge">Bar &amp; Restaurant · Apricale</span>
+        <h3 class="rc-name">Trattoria Bar a Ciassa</h3>
+        <div class="rc-loc">Piazza V. Emanuele 2 · 10 min</div>
+        <p class="rc-desc">Familiedrevet på hovedpladsen. Kid og hasselnøddetærte. Åbent 8–23 — godt til frokost.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,5/5 <small>(464)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Onsdag</div>
+        <div class="rc-phone">+39 0184 208588</div>
+      </div>
+
+      <div class="rc top fu" data-a="dolceacqua" data-t="1">
+        <span class="rc-badge">★ Klassiker · Dolceacqua</span>
+        <h3 class="rc-name">Il Borgo</h3>
+        <div class="rc-loc">Via San Sebastiano 2 · 15 min</div>
+        <p class="rc-desc">På piazzaen med udsigt til borgen og Monet-broen. Pizza, pasta og lokal Rossese. Populært hos franskmænd i weekenden.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,1/5 <small>(906)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Onsdag</div>
+        <div class="rc-phone">+39 0184 206972</div>
+      </div>
+
+      <div class="rc fu" data-a="dolceacqua">
+        <span class="rc-badge">Vinsmagning · Dolceacqua</span>
+        <h3 class="rc-name">Cantina Müragni</h3>
+        <div class="rc-loc">Vicolo Rosso 6 · 15 min</div>
+        <p class="rc-desc">Lille håndlavet produktion af Rossese di Dolceacqua. 5,0/5. Kun efter aftale — meget personlig oplevelse.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">5,0/5 <small>(11)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Kun efter aftale</div>
+        <div class="rc-phone">+39 329 067 7249</div>
+      </div>
+
+      <div class="rc top fu" data-a="bordighera" data-t="1">
+        <span class="rc-badge">★ Bedst bedømt · Bordighera</span>
+        <h3 class="rc-name">Ristorante Del Capo</h3>
+        <div class="rc-loc">Via Al Capo 4 · 22 min</div>
+        <p class="rc-desc">Kokkens 5-retters menu ~50 €. Kun en håndfuld borde. Pesto-pasta, agnolotti, fisk. Områdets højst bedømte restaurant.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,9/5 <small>(93)</small></span>
+          <span class="rc-price">€€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Tirsdag</div>
+        <div class="rc-phone">+39 0184 195 8823</div>
+      </div>
+
+      <div class="rc top fu" data-a="bordighera" data-t="1">
+        <span class="rc-badge">★ Klassiker · Bordighera</span>
+        <h3 class="rc-name">La Reserve</h3>
+        <div class="rc-loc">Via Arziglia 20 · 22 min</div>
+        <p class="rc-desc">Direkte ved klippekysten. Fisk og lette retter. Focaccia med tomat fremhæves. Udsigten er det primære trækplaster.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,0/5 <small>(1.238)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Åbent alle dage 9–24</div>
+        <div class="rc-phone">+39 0184 261322</div>
+      </div>
+
+      <div class="rc top fu" data-a="bordighera" data-t="1">
+        <span class="rc-badge">★ Klassiker · Bordighera Alta</span>
+        <h3 class="rc-name">Saraceno</h3>
+        <div class="rc-loc">Via Bastioni 115 · 22 min</div>
+        <p class="rc-desc">Risotto ai frutti di mare — anmeldere kalder det områdets bedste. Store portioner. Hundvenligt sted.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,1/5 <small>(941)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Åbent alle dage 12–14, 19–22</div>
+        <div class="rc-phone">+39 0184 263594</div>
+      </div>
+
+      <div class="rc top fu" data-a="bordighera" data-t="1">
+        <span class="rc-badge">Unik · Bordighera Havn</span>
+        <h3 class="rc-name">Ittiturismo F.lli Ioviero</h3>
+        <div class="rc-loc">Via Marinai d'Italia · 22 min</div>
+        <p class="rc-desc">Maden tilberedes ombord på fiskerbåden! Fersk fisk, store rejer, frituresteg. En oplevelse — ikke en gourmetrestaurant.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,9/5 <small>(31)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Kun fre/lør/søn 18–22</div>
+        <div class="rc-phone">+39 0184 264236</div>
+      </div>
+
+      <div class="rc fu" data-a="bordighera">
+        <span class="rc-badge">Bageri · Bordighera</span>
+        <h3 class="rc-name">Mirella Panetteria</h3>
+        <div class="rc-loc">Piazza Garibaldi 47 · 22 min</div>
+        <p class="rc-desc">Top focaccia rød og hvid, torta verde, morgenbrioche. Køb forsyninger til dagens udflugt.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,8/5 <small>(112)</small></span>
+          <span class="rc-price">€</span>
+        </div>
+        <div class="rc-closed">Lukket: Søndag · 7:30–13</div>
+        <div class="rc-phone">+39 0184 999368</div>
+      </div>
+
+      <div class="rc fu" data-a="bordighera">
+        <span class="rc-badge">Gelato · Bordighera</span>
+        <h3 class="rc-name">Corte Cremeria</h3>
+        <div class="rc-loc">Via V. Emanuele II 74 · 22 min</div>
+        <p class="rc-desc">Gelato folk kører fra Nice for at få. Triplo pistacchio og stracciatella. Mange vegan-muligheder.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,6/5 <small>(370)</small></span>
+          <span class="rc-price">€</span>
+        </div>
+        <div class="rc-closed">Lukket: Tirsdag · 12–21</div>
+        <div class="rc-phone">+39 0184 260150</div>
+      </div>
+
+      <div class="rc top fu" data-a="san-biagio" data-t="1">
+        <span class="rc-badge">★ Klassiker · San Biagio</span>
+        <h3 class="rc-name">La Vecchia Ostaia</h3>
+        <div class="rc-loc">Via Provinciale 34 · 15 min</div>
+        <p class="rc-desc">"La mamma" laver maden og taler med gæsterne på calabresisk dialekt. Hjemmelavet pasta rullet i hånden.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,6/5 <small>(359)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Tirs + Ons</div>
+        <div class="rc-phone">+39 340 846 4461</div>
+      </div>
+
+      <div class="rc top fu" data-a="pigna" data-t="1">
+        <span class="rc-badge">★ Michelin-niveau · Pigna</span>
+        <h3 class="rc-name">Federico Lanteri</h3>
+        <div class="rc-loc">Via Piazza Castello 10 · 28 min</div>
+        <p class="rc-desc">Smagemenu i Michelin-klassen til 55 €. Pignabønner med ostemousse, hjemmelavede ravioli, vildsvin. Den særlige aften.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,7/5 <small>(130)</small></span>
+          <span class="rc-price">€€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Man + Tirs</div>
+        <div class="rc-phone">+39 349 638 1330</div>
+      </div>
+
+      <div class="rc fu" data-a="pigna">
+        <span class="rc-badge">Michelin Guide · Pigna</span>
+        <h3 class="rc-name">Trattoria Terme</h3>
+        <div class="rc-loc">Loc. Madonna Assunta · 28 min</div>
+        <p class="rc-desc">I Michelin Guide. Svampesæsonmenu 7 retter 37 €/pers. Svampe-is til dessert er legendarisk.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,5/5 <small>(638)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Lukket: Onsdag</div>
+        <div class="rc-phone">+39 0184 241046</div>
+      </div>
+
+      <div class="rc fu" data-a="pigna">
+        <span class="rc-badge">Agriturismo · Pigna</span>
+        <h3 class="rc-name">La Stalla Bianca</h3>
+        <div class="rc-loc">Regione Ubago 7 · 30 min</div>
+        <p class="rc-desc">"Den bedste pizza i hele Italien" ifølge anmeldere. Næsten alle råvarer fra gården. Heste og hunde. Reservation dagen før.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,8/5 <small>(39)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Fre/lør aften, søn frokost</div>
+        <div class="rc-phone">+39 349 793 0948</div>
+      </div>
+
+      <div class="rc top fu" data-a="sanremo" data-t="1">
+        <span class="rc-badge">★ Turen værd · Sanremo</span>
+        <h3 class="rc-name">Ristorante Flipper</h3>
+        <div class="rc-loc">Corso Mombello 46 · 25 min</div>
+        <p class="rc-desc">2.568 anmeldelser på 4,6/5 — statistisk ekstraordinær. Riviera-fisk på højt niveau. Nye tallerkener mellem hver ret.</p>
+        <div class="rc-foot">
+          <span class="rc-rating">4,6/5 <small>(2.568)</small></span>
+          <span class="rc-price">€€</span>
+        </div>
+        <div class="rc-closed">Ring og tjek — åbent dagligt</div>
+        <div class="rc-phone">+39 0184 532986</div>
+      </div>
+
+    </div><!-- /rest-grid -->
+
+    <div style="margin-top:36px; padding:22px 24px; border:1px solid rgba(168,132,58,.18); background:var(--cream);" class="fu">
+      <p style="font-size:.79rem; line-height:1.9; color:var(--muted);">
+        <strong style="color:var(--charcoal);">Praktisk:</strong>
+        Mange steder tager <strong>kun kontanter</strong> — hæv euros inden weekenden. <strong>Reservation anbefales overalt</strong> — de bedste steder har 8–10 borde. Køkkenet lukker præcist — kom 30 min før.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RUTEVEJLEDNING -->
+<section id="rute">
+  <div class="container">
+    <span class="section-label fu">Adresse &amp; Rutevejledning</span>
+    <div class="gold-rule fu"></div>
+    <h2 class="section-title fu">Kom til<br><em>Perinaldo</em></h2>
+    <div class="rute-layout">
+      <div>
+        <div class="rute-step fu">
+          <span class="rn">I</span>
+          <div class="rt">
+            <h4>Fra Nice lufthavn (A8/A10)</h4>
+            <p>Motorvej A8/E80 mod Monaco/Genova (i Italien: A10). Første afkørsel ved Ventimiglia → SS1 mod Sanremo → ved lyskryds i Vallecrosia tag SP59 (Via Roma) mod Perinaldo. 13 km ad SP59.</p>
+          </div>
+        </div>
+        <div class="rute-step fu">
+          <span class="rn">II</span>
+          <div class="rt">
+            <h4>GPS-advarsel ⚠</h4>
+            <p>GPS kan anbefale rute via Dolceacqua (SP64/SP62) eller San Romolo (SP56/SP61) — <strong>den vej skal du IKKE tage</strong>. SP59 fra Vallecrosia er altid bedst, uanset hvorfra du kommer.</p>
+          </div>
+        </div>
+        <div class="rute-step fu">
+          <span class="rn">III</span>
+          <div class="rt">
+            <h4>Fra Danmark</h4>
+            <p>Ca. 1½ dags kørsel — 1700 km fra København. Overnat fx i Rothenburg ob der Tauber, Ulm eller Füssen.</p>
+          </div>
+        </div>
+        <div class="rute-step fu">
+          <span class="rn">IV</span>
+          <div class="rt">
+            <h4>Parkering &amp; adresse</h4>
+            <p>Via Matteotti 24, 18032 Perinaldo. GPS finder ikke altid adressen — tast Piazza Santa Croce eller koordinaterne <strong>43.867214, 7.671158</strong>. P-pladser 40–100 m fra huset.</p>
+          </div>
+        </div>
+        <div class="rute-step fu">
+          <span class="rn">V</span>
+          <div class="rt">
+            <h4>Uden bil</h4>
+            <p>Tog Nice → Ventimiglia, derefter bus nr. 8 til Perinaldo (rivieratrasporti.it). Med bil i området er dog uundværligt.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fu">
+        <div class="map-block">
+          <iframe src="https://maps.google.com/maps?q=43.867214,7.671158&z=13&output=embed" title="Perinaldo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-meta">
+          <strong>Koordinater:</strong> 43.867214, 7.671158<br>
+          <strong>Adresse:</strong> Via Matteotti 24, 18032 Perinaldo IM<br>
+          <strong>Nærmeste supermarked:</strong> Conad, Vallecrosia (13 km)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRAKTISK & BOOKING -->
+<section id="praktisk">
+  <div class="container">
+    <span class="section-label fu">Priser &amp; Booking</span>
+    <div class="gold-rule fu"></div>
+    <h2 class="section-title fu">Praktisk<br><em>information</em></h2>
+
+    <div class="price-duo fu">
+      <div class="price-block">
+        <div class="price-big">6.000 kr</div>
+        <div class="price-per">Per uge · begge lejligheder · 7 sovepladser</div>
+        <div class="price-note">
+          Inkl. el, gas, vand, sengetøj og håndklæder<br>
+          Slutrengøring: 500 kr per lejlighed (obligatorisk)<br>
+          Minimum 1 uge · Primært lørdag–lørdag
+        </div>
+      </div>
+      <div class="price-block">
+        <div class="price-big" style="font-size:2.6rem; padding-top:6px;">805 €</div>
+        <div class="price-per">Svarer til ca. 805 euro</div>
+        <div class="price-note">
+          Afbestilling: 50% inden 4 uger · Fuld pris ved sen afbestilling<br>
+          Ankomst fra kl. 15:00 · Afrejse senest kl. 10:00<br>
+          Begge lejligheder lejes kun samlet
+        </div>
+      </div>
+    </div>
+
+    <div class="praktisk-grid">
+      <div class="pk fu">
+        <h3>I huset</h3>
+        <ul>
+          <li><strong>Vaskemaskine</strong> til fri afbenyttelse</li>
+          <li><strong>Ingen opvaskemaskine</strong></li>
+          <li><strong>Ingen wi-fi</strong> — brug roaming-abonnement</li>
+          <li><strong>Ingen TV</strong></li>
+          <li>Bluetooth-højttalere til rådighed</li>
+          <li>Sengetøj og håndklæder inkluderet</li>
+          <li>Rygning: kun balkon og terrasse</li>
+          <li>Hunde velkomne (ikke i møblerne)</li>
+        </ul>
+      </div>
+      <div class="pk fu">
+        <h3>Nødlager — genopfyld inden afrejse</h3>
+        <ul>
+          <li>Opvaskemiddel</li>
+          <li>Olivenolie</li>
+          <li>Køkkenrulle</li>
+          <li>Toiletpapir</li>
+          <li>Pasta</li>
+          <li>To flasker vin efter eget valg</li>
+        </ul>
+        <p style="margin-top:14px; font-size:.74rem; color:rgba(255,255,255,.33); line-height:1.6;">
+          Affald afleveres i skraldestationen på Via Gramsci ca. 100 m fra huset.
+        </p>
+      </div>
+      <div class="pk fu">
+        <h3>Kontakt</h3>
+        <ul>
+          <li><strong>Kåre Forsingdal</strong></li>
+          <li>+45 30 42 04 04</li>
+          <li><a href="mailto:k@forsingdal.com" style="color:var(--gold);">k@forsingdal.com</a></li>
+          <li style="margin-top:8px;"><strong>Henrik Nielsen</strong></li>
+          <li>+45 27 28 29 20</li>
+          <li><a href="mailto:henrik@devote.dk" style="color:var(--gold);">henrik@devote.dk</a></li>
+          <li style="margin-top:8px; color:rgba(255,255,255,.28);">Nøgle: Sigrid Mühlbauer +39 347 10 78 358</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="booking-cta fu">
+      <a href="mailto:k@forsingdal.com?subject=Reservation%20Perinaldo%20Feriehus" class="btn-p">Skriv til Kåre</a>
+      <a href="mailto:henrik@devote.dk?subject=Reservation%20Perinaldo%20Feriehus" class="btn-o">Skriv til Henrik</a>
+      <a href="https://www.google.com/calendar/embed?src=tt26o1jbtti794paqqqni66tbc%40group.calendar.google.com&ctz=Europe/Copenhagen" target="_blank" class="btn-o">Se ledighedskalender</a>
+    </div>
+
+    <div class="quote-end fu">
+      <p>"Slap af og nyd ferien."</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">Perinaldo Feriehus</div>
+  <div class="f-addr">Via Matteotti 24 · 18032 Perinaldo IM · Ligurien · Italien<br>43.867214, 7.671158</div>
+  <div class="f-copy">© Kåre Forsingdal &amp; Henrik Nielsen</div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80), {passive:true});
+
+  // Tab switch
+  function switchTab(id) {
+    document.querySelectorAll('.apt-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.apt-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // Restaurant filter
+  function filterR(area, btn) {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.rc').forEach(c => {
+      if (area === 'all') c.style.display = '';
+      else if (area === 'top') c.style.display = c.dataset.t ? '' : 'none';
+      else c.style.display = c.dataset.a === area ? '' : 'none';
+    });
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold:0.07, rootMargin:'0px 0px -30px 0px' });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
